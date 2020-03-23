@@ -1,26 +1,21 @@
-openapi: 3.0.1
+mport json
 
-info:
-  title: Sample API
-  version: '2019-03-22'
+# import requests
 
-paths:
-  /sample:
-    get:
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                type: object
 
-      x-amazon-apigateway-integration:
-        uri:
-          Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${SampleFunction.Arn}/invocations
-        responses:
-          default:
-            statusCode: '200'
-        passthroughBehavior: when_no_match
-        httpMethod: POST
-        contentHandling: CONVERT_TO_TEXT
-        type: aws_proxy
+def lambda_handler(event, context):
+    # try:
+    #     ip = requests.get("http://checkip.amazonaws.com/")
+    # except requests.RequestException as e:
+    #     # Send some context about this error to Lambda Logs
+    #     print(e)
+
+    #     raise e
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "message": "hello world",
+            # "location": ip.text.replace("\n", "")
+        }),
+    }

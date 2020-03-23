@@ -154,4 +154,4 @@ curl {Api_URL}
 ```
 
 ## Step 5 - clean up
-aws cloudformation delete-stack --stack-name hell-world-sam --region ${AWS_REGION}
+aws cloudformation delete-stack --stack-name sam-include-demo --region ${AWS_REGION}
