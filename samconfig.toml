@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "hell-world-sam"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-12gqs2pqbiv7"
+s3_prefix = "hell-world-sam"
+region = "cn-north-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
