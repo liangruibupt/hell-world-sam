@@ -18,15 +18,15 @@ sam init --name hell-world-sam
 
 #Step 2 - Build your application
 cd hell-world-sam
-sam build
+sam build --region ${AWS_REGION}
 
 #Step 3 - Deploy your application
-sam deploy --guided
+sam deploy --guided --region ${AWS_REGION}
 
 #Step 4 - Testing api, replace {HelloWorldApi_URL} with SAM deploy outputs
 curl {HelloWorldApi_URL}
 #For example: curl https://dm3csbnzsg.execute-api.cn-north-1.amazonaws.com.cn/Prod/hello
-sam logs -n HelloWorldFunction --stack-name hell-world-sam --tail
+sam logs -n HelloWorldFunction --stack-name hell-world-sam --tail --region ${AWS_REGION}
 
 #Step5 - Testing Your Application Locally
 ## Host Your API Locally 
@@ -47,6 +47,8 @@ Details of Hello-World-SAM
 
 [GettingStart](GettingStart.md)
 
+## Getting start AWS::Include Transform
+[SAM AWS::Include Schema](SAMIncludeSchema.md)
 
 ## Resources
 
