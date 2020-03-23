@@ -47,8 +47,13 @@ Details of Hello-World-SAM
 
 [GettingStart](GettingStart.md)
 
-## Getting start AWS::Include Transform
-[SAM AWS::Include Schema](SAMIncludeSchema.md)
+More example:
+- Getting start AWS::Include Transform demo
+[AWS::Include Transform demo](SAMIncludeSchema.md)
+- Lambda Athourizer for API Gateway demo
+[AWS::Serverless Transform demo - Nested Application for Lambda Authorizer](AddLambdaAuthorizer.md)
+- Creates an API Gateway HTTP API demo
+[Creates an API Gateway HTTP API](HTTPAPIDemo.md)
 
 ## Resources
 
