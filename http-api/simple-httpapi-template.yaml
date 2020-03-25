@@ -1,15 +1,57 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: AWS SAM template with a simple API definition
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  StageName:
+    Type: String
+    Default: Prod
+    
 Resources:
-  ApiFunction:
+  HttpApiFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Events:
-        ApiEvent:
-          Type: HttpApi
-      Handler: index.handler
       InlineCode: |
         def handler(event, context):
             return {'body': 'Hello World!', 'statusCode': 200}
+      Handler: index.handler
       Runtime: python3.7
-Transform: AWS::Serverless-2016-10-31
+      Events:
+        ExplicitApi: # warning: creates a public endpoint
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: GET
+            Path: /echo
+            TimeoutInMillis: 15000
+            PayloadFormatVersion: "2.0"
+            RouteSettings:
+              ThrottlingBurstLimit: 600
+
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref StageName
+      AccessLogSettings:
+        DestinationArn: !GetAtt AccessLogs.Arn
+        Format: $context.requestId
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 200
+      RouteSettings:
+        "GET /echo":
+          ThrottlingBurstLimit: 500 # overridden in HttpApi Event
+          DetailedMetricsEnabled: True
+
+  AccessLogs:
+    Type: AWS::Logs::LogGroup
+    Properties: 
+      LogGroupName: API-Gateway-Execution-Logs-HttpAPIDemo
+      RetentionInDays: 3
+
+Outputs:
+  HttpApiUrl:
+    Description: URL of your API endpoint
+    Value:
+      Fn::Sub: 'https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/${StageName}/'
+  HttpApiId:
+    Description: Api id of HttpApi
+    Value:
+      Ref: HttpApi
