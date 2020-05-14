@@ -1,8 +1,8 @@
 # hell-world-sam
 
-This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI.
+This project to show the demo to build and deploy a serverless application that you can deploy with the SAM CLI.
 
-The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
+The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project demos. You can update the template to add AWS resources through the same deployment process that updates your application code.
 
 If you prefer to use an integrated development environment (IDE) to build and test your application, you can use the AWS Toolkit.  
 
@@ -43,11 +43,9 @@ python -m pytest tests/ -v
 ##Step6 - clean up
 aws cloudformation delete-stack --stack-name hell-world-sam --region ${AWS_REGION}
 ```
-Details of Hello-World-SAM
+Details of each command can be find in [GettingStart guide](GettingStart.md)
 
-[GettingStart](GettingStart.md)
-
-More example:
+## More example:
 - Getting start AWS::Include Transform demo
 [AWS::Include Transform demo](SAMIncludeSchema.md)
 - Lambda Athourizer for API Gateway demo
@@ -57,6 +55,6 @@ More example:
 
 ## Resources
 
-See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
+[AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)

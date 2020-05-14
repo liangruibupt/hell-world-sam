@@ -10,12 +10,12 @@ For serverless application, with nested applications, serverless applications ar
 - [Simple AWS::Include demo](SimpleAWSIncludeDemo.md)
 - [Nested Application for Lambda Authorizer](AddLambdaAuthorizer.md)
 
-
+```yaml
   helloworld:
     Type: AWS::Serverless::Application
     Properties:
       Location:
         ApplicationId: arn:aws-cn:serverlessrepo:cn-north-1:128255356669:applications/helloworld
         SemanticVersion: 
-        
+```        
       
