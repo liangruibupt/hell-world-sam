@@ -52,6 +52,7 @@ Details of each command can be find in [GettingStart guide](GettingStart.md)
 [AWS::Serverless Transform demo - Nested Application for Lambda Authorizer](AddLambdaAuthorizer.md)
 - Creates an API Gateway HTTP API demo
 [Creates an API Gateway HTTP API](HTTPAPIDemo.md)
+[Step_Functions_Sample_App for cross region and cross account deployment](Step_Functions_Sample_App.md)
 
 ## Resources
 
